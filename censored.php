@@ -1,7 +1,13 @@
 <?php
     $paragrafo = $_POST['par'];
-    $censura = $_POST['censured'];
-
+    $censura_array = explode(' ', $_POST['censured']);
+    // funzione che itera ogni elemento dell'array delle parole censurate e se il paragrafo contiene quella parola, viene sostituita con ***
+    function multipleWords($censoredArray, $par){
+        foreach ($censoredArray as $element){
+            $par = str_replace($element, '<span class="text-danger">***</span>', $par);
+        }
+        return $par;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +21,7 @@
 <body>
     
     <header>
-        <h1 class="text-center py-3">PHP - CENSORED</h1>
+        <h1 class="text-center py-3">PHP - <span class="text-danger text-decoration-underline">CENSORED</span></h1>
     </header>
 
     <main>
@@ -32,7 +38,10 @@
                 </div>
                 <div class="col-6">
                     <h2 class="text-success">Il paragrafo censurato è: 
-                        <span class="text-white"><?php echo str_replace($censura, '<span class="text-danger">***</span>', $paragrafo)?></span>
+                        <span class="text-white">
+                            <!-- funzione richiamata con l'array delle parole da censurare e il paragrafo come argomenti -->
+                            <?php echo multipleWords($censura_array, $paragrafo) ?>
+                        </span>
                     </h2>
                 </div>
             </div>
