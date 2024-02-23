@@ -18,8 +18,8 @@
     </header>
 
     <main>
-
-        <h2>Il paragrafo censurato è: <?php echo str_replace($censura, '***', $paragrafo)?> <br> Lunghezza caratteri: <?php echo strlen($paragrafo) ?> </h2>
+        <h2>Il paragrafo è: <?php echo $paragrafo ?><br> Lunghezza caratteri: <?php echo strlen($paragrafo) ?> </h2>
+        <h2>Il paragrafo censurato è: <?php echo str_replace($censura, '***', $paragrafo)?></h2>
     </main>
 
 </body>
