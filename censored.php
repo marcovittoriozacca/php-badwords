@@ -4,7 +4,7 @@
     // funzione che itera ogni elemento dell'array delle parole censurate e se il paragrafo contiene quella parola, viene sostituita con ***
     function multipleWords($censoredArray, $par){
         foreach ($censoredArray as $element){
-            $par = str_replace($element, '<span class="text-danger">***</span>', $par);
+            $par = str_replace($element, '***', $par);
         }
         return $par;
     }
@@ -42,6 +42,9 @@
                             <!-- funzione richiamata con l'array delle parole da censurare e il paragrafo come argomenti -->
                             <?php echo multipleWords($censura_array, $paragrafo) ?>
                         </span>
+                    </h2>
+                    <h2 class="text-primary">Lunghezza caratteri:
+                        <span class="text-white"><?php echo strlen(multipleWords($censura_array, $paragrafo))?></span> 
                     </h2>
                 </div>
             </div>
